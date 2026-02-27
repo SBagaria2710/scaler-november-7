@@ -4,10 +4,12 @@ import counterSlice from '../redux/counterSlice';
 const actions = counterSlice.actions;
 function CounterRedux(){
   //get updated value of state
-  const count = useSelector((store) => {
-    console.log(store);
-    return store.counterState.count
-  });
+//   const count = useSelector((store) => {
+//     console.log(store);
+//     return store.counterState.count
+//   });
+
+  const count = useSelector((store) => store.counterState.count);
 
   const dispatch = useDispatch();
 
@@ -19,7 +21,7 @@ function CounterRedux(){
     
     const handleDecrement = () => {
         console.log("decrement will happen");
-        dispatch(actions.decrement());
+        dispatch(actions.decrement(2));
     }
     return(
         <>
