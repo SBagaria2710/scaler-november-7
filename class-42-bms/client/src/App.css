@@ -206,6 +206,7 @@ hr {
   cursor: pointer;
   font-size: 13px;
   min-height: unset;
+  padding: 0;
 }
 .seat-ul .seat-btn:hover {
   background-color: #f1f1f1;

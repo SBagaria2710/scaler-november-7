@@ -18,6 +18,15 @@ export const getAllMovies = async () => {
     }
 };
 
+export const getMovieById = async (movieId) => {
+    try {
+        const response = await apiClient.get(`/movie/${movieId}`);
+        return response.data;
+    } catch (err) {
+        return err.response?.data || { success: false, message: err.message };
+    }
+};
+
 export const updateMovie = async (payload) => {
     try {
         const response = await apiClient.put("/movie/update-movie", payload);

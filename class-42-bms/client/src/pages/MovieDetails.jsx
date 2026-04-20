@@ -2,12 +2,18 @@ import { useEffect, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button, message } from "antd";
 import { getShowsByMovie } from "../api/shows.js";
+import { getMovieById } from "../api/movies.js";
 
+const formatMinutesToHHMM = (minutes) => {
+  const mins = Number(minutes) || 0;
+  const hours = Math.floor(mins / 60);
+  const remaining = mins % 60;
+  return `${hours}h ${String(remaining).padStart(2, "0")}m`;
+};
 
 export default function MovieDetails() {
   const { movieId } = useParams();
   const navigate = useNavigate();
-
 
   const getTodayYYYYMMDD = () => {
     const d = new Date();
@@ -17,10 +23,22 @@ export default function MovieDetails() {
     return `${yyyy}-${mm}-${dd}`;
   };
 
-
+  const [movie, setMovie] = useState(null);
   const [shows, setShows] = useState([]);
   const [date, setDate] = useState(getTodayYYYYMMDD());
 
+  const fetchMovie = async () => {
+    try {
+      const res = await getMovieById(movieId);
+      if (res.success) {
+        setMovie(res.data);
+      } else {
+        message.error(res.message);
+      }
+    } catch (error) {
+      message.error(error.message);
+    }
+  };
 
   const fetchShows = async (selectedDate) => {
     try {
@@ -36,16 +54,20 @@ export default function MovieDetails() {
   };
 
 
-  // Auto fetch on first load
+  // Auto fetch movie details and shows on first load
   useEffect(() => {
-    fetchShows(date);
+    if (movieId) {
+      fetchMovie();
+      fetchShows(date);
+    }
   }, [movieId]);
-
 
   // Refetch when date changes
   useEffect(() => {
-    fetchShows(date);
-  }, [date]);
+    if (movieId) {
+      fetchShows(date);
+    }
+  }, [date, movieId]);
 
 
   // Group shows by theatre
@@ -73,8 +95,80 @@ export default function MovieDetails() {
   return (
     <div>
       <header className="App-header_base">
-        <h2 style={{ marginBottom: 12 }}>Select Date</h2>
+        {movie ? (
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 24,
+              alignItems: "flex-start",
+              marginBottom: 24,
+              color: "black"
+            }}
+          >
+            <img
+              src={movie.poster}
+              alt={movie.title}
+              style={{
+                width: 240,
+                height: 360,
+                objectFit: "cover",
+                borderRadius: 16,
+                flexShrink: 0,
+              }}
+            />
+            <div style={{ minWidth: 240, flex: 1, color: "black" }}>
+              <h1 style={{ margin: 0, fontSize: 36 }}>{movie.title}</h1>
+              <p style={{ margin: "12px 0 0", fontSize: 16, opacity: 0.85 }}>
+                {movie.genre}
+              </p>
+              <div
+                style={{
+                  marginTop: 18,
+                  display: "flex",
+                  gap: 16,
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                }}
+              >
+                <span
+                  style={{
+                    background: "rgba(255,255,255,0.08)",
+                    padding: "8px 12px",
+                    paddingLeft: 0,
+                    borderRadius: 8,
+                    fontSize: 14,
+                  }}
+                >
+                  Duration: {formatMinutesToHHMM(movie.duration)}
+                </span>
+                {movie.language && (
+                  <span
+                    style={{
+                      background: "rgba(255,255,255,0.08)",
+                      padding: "8px 12px",
+                      borderRadius: 8,
+                      fontSize: 14,
+                    }}
+                  >
+                    {movie.language}
+                  </span>
+                )}
+              </div>
+              {movie.description && (
+                <p style={{ marginTop: 18, lineHeight: 1.6, opacity: 0.9 }}>
+                  {movie.description}
+                </p>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div style={{ marginBottom: 24 }}>
+            <h2>Loading movie details...</h2>
+          </div>
+        )}
 
+        <h2 style={{ marginBottom: 12 }}>Select Date</h2>
 
         <div style={{ marginBottom: 24 }}>
           <input
@@ -86,10 +180,11 @@ export default function MovieDetails() {
               borderRadius: 6,
               border: "1px solid #d1d5db",
               fontSize: 14,
+              backgroundColor: "lightgray",
+              color: "black",
             }}
           />
         </div>
-
 
         {groupedByTheatre.length === 0 ? (
           <p>No shows found for this movie on this date.</p>
@@ -108,7 +203,6 @@ export default function MovieDetails() {
                   {group.theatre.name}
                 </div>
                 <div style={{ opacity: 0.85 }}>{group.theatre.address}</div>
-
 
                 <div
                   style={{

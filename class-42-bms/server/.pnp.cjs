@@ -35,8 +35,10 @@ const RAW_RUNTIME_STATE =
           ["jsonwebtoken", "npm:9.0.3"],\
           ["mongodb", "virtual:85484a1c7c605068fa08b5537359d009ca94035274094c532dfc995ccc16a8cad5ad6214fefde86b775e1382377638e6fe2700f371273f58fec2da20dd797868#npm:7.1.1"],\
           ["mongoose", "npm:9.3.3"],\
+          ["nodemailer", "npm:8.0.5"],\
           ["nodemon", "npm:3.1.14"],\
-          ["server", "workspace:."]\
+          ["server", "workspace:."],\
+          ["uuid", "npm:14.0.0"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1374,6 +1376,15 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["nodemailer", [\
+      ["npm:8.0.5", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/nodemailer-npm-8.0.5-f8ec8eb7cf-10c0.zip/node_modules/nodemailer/",\
+        "packageDependencies": [\
+          ["nodemailer", "npm:8.0.5"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["nodemon", [\
       ["npm:3.1.14", {\
         "packageLocation": "./.yarn/unplugged/nodemon-npm-3.1.14-58ccc9ac24/node_modules/nodemon/",\
@@ -1669,8 +1680,10 @@ const RAW_RUNTIME_STATE =
           ["jsonwebtoken", "npm:9.0.3"],\
           ["mongodb", "virtual:85484a1c7c605068fa08b5537359d009ca94035274094c532dfc995ccc16a8cad5ad6214fefde86b775e1382377638e6fe2700f371273f58fec2da20dd797868#npm:7.1.1"],\
           ["mongoose", "npm:9.3.3"],\
+          ["nodemailer", "npm:8.0.5"],\
           ["nodemon", "npm:3.1.14"],\
-          ["server", "workspace:."]\
+          ["server", "workspace:."],\
+          ["uuid", "npm:14.0.0"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -1915,6 +1928,15 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "../../../../../.yarn/berry/cache/unpipe-npm-1.0.0-2ed2a3c2bf-10c0.zip/node_modules/unpipe/",\
         "packageDependencies": [\
           ["unpipe", "npm:1.0.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["uuid", [\
+      ["npm:14.0.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/uuid-npm-14.0.0-5e662e945a-10c0.zip/node_modules/uuid/",\
+        "packageDependencies": [\
+          ["uuid", "npm:14.0.0"]\
         ],\
         "linkType": "HARD"\
       }]\

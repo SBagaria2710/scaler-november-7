@@ -30,3 +30,12 @@ export const getShowsByTheatre = async (theatreId) => {
     return err.response?.data || { success: false, message: err.message };
   }
 };
+
+export const getShowsById = async (showId) => {
+  try {
+    const response = await apiClient.get(`/show/${showId}`);
+    return response.data;
+  } catch (err) {
+    return err.response?.data || { success: false, message: err.message };
+  }
+};
