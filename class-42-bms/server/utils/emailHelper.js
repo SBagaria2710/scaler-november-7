@@ -16,6 +16,7 @@ function replaceContent(content, creds) {
     allKeysArr.forEach(function(key) {
         content = content.replace(`#{${key}}`, creds[key]);
     });
+    return content;
 }
 
 const EmailHelper = async (templateName, receiverEmail, creds) => {
