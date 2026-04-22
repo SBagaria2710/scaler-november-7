@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WebSockets</title>
+  <style>
+    ul {
+      list-style: none;
+    }
+
+    .sender {
+      background-color: lightcoral;
+      margin-left: 4rem;
+      padding: 1rem;
+    }
+
+    .receiver {
+      background-color: lightblue;
+      margin-left: 2rem;
+      padding: 1rem;
+    }
+
+    .messages {
+      width: 50%;
+      /* margin: 0 auto; */
+    }
+  </style>
+
+  </style>
+</head>
+
+<body>
+  <h1>Web Sockets</h1>
+
+  <input type="text" id="eventMessage" />
+  <button id="sendCta">Send</button>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="./script.js"></script>
+</body>
+
+</html>

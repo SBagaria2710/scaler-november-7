@@ -1,0 +1,5 @@
+The WebSocket API is an advance technology that makes it possible to open a two-way interactive communication
+session between the user's browser and server.
+
+Socket.io is a javascript library that enables real-time, bidirectional, and event-based
+communication between web clients ()like browsers and server.
