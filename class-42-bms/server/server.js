@@ -4,7 +4,7 @@ import connectDB from "./config/db.js";
 import cors from "cors";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
-import mongoSanitize from "express-mongo-sanitize";
+// import mongoSanitize from "express-mongo-sanitize";
 import path from "path";
 import { fileURLToPath } from "url";
 
@@ -26,23 +26,23 @@ app.use(helmet());
 app.disable("x-powered-by");
 
 // Custom Content Security Policy (CSP) configuration
-app.use(
-  helmet.contentSecurityPolicy({
-    directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "example.com", "scaler.com"], // Allow scripts from 'self' and example.com
-      styleSrc: ["'self'", "'unsafe-inline'"], // Allow inline styles (unsafe)
-      imgSrc: ["'self'", "data:", "example.com"], // Allow images from 'self', data URLs, and example.com
-      connectSrc: ["'self'", "api.example.com"], // Allow connections to 'self' and api.example.com
-      fontSrc: ["'self'", "fonts.gstatic.com"], // Allow fonts from 'self' and fonts.gstatic.com
-      objectSrc: ["'none'"], // Disallow object, embed, and applet elements
-      upgradeInsecureRequests: [], // Upgrade insecure requests to HTTPS
-    },
-  })
-);
+// app.use(
+//   helmet.contentSecurityPolicy({
+//     directives: {
+//       defaultSrc: ["'self'"],
+//       scriptSrc: ["'self'", "example.com", "scaler.com"], // Allow scripts from 'self' and example.com
+//       styleSrc: ["'self'", "'unsafe-inline'"], // Allow inline styles (unsafe)
+//       imgSrc: ["'self'", "data:", "example.com"], // Allow images from 'self', data URLs, and example.com
+//       connectSrc: ["'self'", "api.example.com"], // Allow connections to 'self' and api.example.com
+//       fontSrc: ["'self'", "fonts.gstatic.com"], // Allow fonts from 'self' and fonts.gstatic.com
+//       objectSrc: ["'none'"], // Disallow object, embed, and applet elements
+//       upgradeInsecureRequests: [], // Upgrade insecure requests to HTTPS
+//     },
+//   })
+// );
 
 // Sanitize user input to prevent Mongo Operator Injection
-app.use(mongoSanitize());
+// app.use(mongoSanitize());
 
 app.use(cors({
     origin: "*",
