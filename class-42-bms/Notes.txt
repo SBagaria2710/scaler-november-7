@@ -1,0 +1,23 @@
+Bcrypt is a password hashing function that incorporate a salt to protect against rainbow table attacks.
+A salt is a random value added to the password before hashing to ensure that the same password results in different hashes.
+
+Hashing vs Encryption
+Encryption is a reversible process (you encrypt data to later decrypt it). While Hashing function that bcrypt uses is one-way (once the
+data is hashed, you can't turn the has back into the original data). This is useful for storing password.
+
+Stored Hash contains the salt. When bcrypt hashes a password, it incorporates the salt into the resulting hash.
+This means the has stores in your database contains both hashed password and the salt used. The format typically includes the salt, the cost factor (or salt rounds),
+and the hashed passwrod.
+
+-----
+DoS -> Denial of Service -> is a type fo cyber attach where the attacker aims to make a website or online Service unavailable to incorporates
+users
+Rate Limiting -> is a mechanism used to control the number of requests a client can make to a server within a specific time frame. This helps 
+to prevent abuse, ensure fair usage, and protect the server from being overwhelmed by too many requests in a short period.
+
+XSS -> A security velnerability where attackers inject malicious scripts into web pages
+viewd by others.
+
+---
+SQL injection is a code injection technique that exploits a security vulnerability in an application's software by manipulating the SQL queries made to the
+database.

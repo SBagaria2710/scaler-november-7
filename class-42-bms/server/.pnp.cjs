@@ -32,6 +32,9 @@ const RAW_RUNTIME_STATE =
           ["cors", "npm:2.8.6"],\
           ["dotenv", "npm:17.4.0"],\
           ["express", "npm:5.2.1"],\
+          ["express-mongo-sanitize", "npm:2.2.0"],\
+          ["express-rate-limit", "virtual:48fd9d653646a991d0eda5ffe92778b72de446c151643ca5c3964e62f24bed64d28e19b09ae1edf82cd4ab484e9e16d2c4b4953045a3524fb9431546d36f4563#npm:8.4.0"],\
+          ["helmet", "npm:8.1.0"],\
           ["jsonwebtoken", "npm:9.0.3"],\
           ["mongodb", "virtual:85484a1c7c605068fa08b5537359d009ca94035274094c532dfc995ccc16a8cad5ad6214fefde86b775e1382377638e6fe2700f371273f58fec2da20dd797868#npm:7.1.1"],\
           ["mongoose", "npm:9.3.3"],\
@@ -587,6 +590,38 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
+    ["express-mongo-sanitize", [\
+      ["npm:2.2.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/express-mongo-sanitize-npm-2.2.0-488ae870ce-10c0.zip/node_modules/express-mongo-sanitize/",\
+        "packageDependencies": [\
+          ["express-mongo-sanitize", "npm:2.2.0"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["express-rate-limit", [\
+      ["npm:8.4.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/express-rate-limit-npm-8.4.0-5d2279569d-10c0.zip/node_modules/express-rate-limit/",\
+        "packageDependencies": [\
+          ["express-rate-limit", "npm:8.4.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:48fd9d653646a991d0eda5ffe92778b72de446c151643ca5c3964e62f24bed64d28e19b09ae1edf82cd4ab484e9e16d2c4b4953045a3524fb9431546d36f4563#npm:8.4.0", {\
+        "packageLocation": "./.yarn/__virtual__/express-rate-limit-virtual-a1d08ef468/6/.yarn/berry/cache/express-rate-limit-npm-8.4.0-5d2279569d-10c0.zip/node_modules/express-rate-limit/",\
+        "packageDependencies": [\
+          ["@types/express", null],\
+          ["express", "npm:5.2.1"],\
+          ["express-rate-limit", "virtual:48fd9d653646a991d0eda5ffe92778b72de446c151643ca5c3964e62f24bed64d28e19b09ae1edf82cd4ab484e9e16d2c4b4953045a3524fb9431546d36f4563#npm:8.4.0"],\
+          ["ip-address", "npm:10.1.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/express",\
+          "express"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
     ["fdir", [\
       ["npm:6.5.0", {\
         "packageLocation": "../../../../../.yarn/berry/cache/fdir-npm-6.5.0-8814a0dec7-10c0.zip/node_modules/fdir/",\
@@ -787,6 +822,15 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["function-bind", "npm:1.1.2"],\
           ["hasown", "npm:2.0.2"]\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["helmet", [\
+      ["npm:8.1.0", {\
+        "packageLocation": "../../../../../.yarn/berry/cache/helmet-npm-8.1.0-a2193b660c-10c0.zip/node_modules/helmet/",\
+        "packageDependencies": [\
+          ["helmet", "npm:8.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -1677,6 +1721,9 @@ const RAW_RUNTIME_STATE =
           ["cors", "npm:2.8.6"],\
           ["dotenv", "npm:17.4.0"],\
           ["express", "npm:5.2.1"],\
+          ["express-mongo-sanitize", "npm:2.2.0"],\
+          ["express-rate-limit", "virtual:48fd9d653646a991d0eda5ffe92778b72de446c151643ca5c3964e62f24bed64d28e19b09ae1edf82cd4ab484e9e16d2c4b4953045a3524fb9431546d36f4563#npm:8.4.0"],\
+          ["helmet", "npm:8.1.0"],\
           ["jsonwebtoken", "npm:9.0.3"],\
           ["mongodb", "virtual:85484a1c7c605068fa08b5537359d009ca94035274094c532dfc995ccc16a8cad5ad6214fefde86b775e1382377638e6fe2700f371273f58fec2da20dd797868#npm:7.1.1"],\
           ["mongoose", "npm:9.3.3"],\

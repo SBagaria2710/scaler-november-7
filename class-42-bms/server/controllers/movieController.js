@@ -17,6 +17,7 @@ export const addMovie = async (req, res) => {
 };
 
 export const getAllMovies = async (req, res) => {
+  console.log("HEREEEEE");
   try {
     const movies = await Movie.find().sort({ createdAt: -1 });
     res.send({
