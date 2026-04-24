@@ -77,6 +77,6 @@ app.listen(5001, () => {
 
 const publicPath = path.join(__dirname, "../client/dist");
 app.use(express.static(publicPath));
-app.get("*", (req, res) => {
+app.get(/(.*)/, (_req, res) => {
   res.sendFile(path.join(publicPath, "index.html"));
 });
