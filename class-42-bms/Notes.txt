@@ -21,3 +21,5 @@ viewd by others.
 ---
 SQL injection is a code injection technique that exploits a security vulnerability in an application's software by manipulating the SQL queries made to the
 database.
+
+

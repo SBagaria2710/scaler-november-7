@@ -2,7 +2,8 @@ import axios from 'axios';
 
 // Create a reusable axios instance
 const apiClient = axios.create({
-  baseURL: 'http://localhost:5001/api',
+  // baseURL: 'http://localhost:5001/api',
+  baseURL: "https://scaler-november-7.onrender.com",
   timeout: 10000, // 10 seconds timeout
 });
 

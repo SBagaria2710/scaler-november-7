@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/db.js";
-import cors from "cors";
+// import cors from "cors";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import mongoSanitize from "express-mongo-sanitize";
@@ -41,8 +41,9 @@ app.use(
 app.use(mongoSanitize());
 
 app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true
+    origin: "*",
+    methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
 }));
 app.use(express.json());
 
@@ -68,4 +69,10 @@ app.get("/health", (req, res) => {
 const PORT = process.env.PORT || 5001;
 app.listen(5001, () => {
     console.log(`Server running on port ${PORT}`);
+});
+
+const publicPath = path.join(__dirname, "../client/dist");
+app.use(express.static(publicPath));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(publicPath, "index.html"));
 });
