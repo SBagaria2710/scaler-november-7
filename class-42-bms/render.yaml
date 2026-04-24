@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: scaler-november-7
+    runtime: node
+    rootDir: class-42-bms
+    buildCommand: cd client && yarn install && yarn run build && cd ../server && yarn install
+    startCommand: cd server && node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
